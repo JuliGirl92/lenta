@@ -1,0 +1,689 @@
+<!doctype html><html lang="ru"><head><title>Планировщик Instagram-ленты</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Лента"><link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmJlZmQxNzlkLWQxMjEtNDA0YS04NGNkLTYwNWU4MTg0MDdkYQAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNoVeJD3Ig55vSGhN7rIFtIiQAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6Njc5NDY1MzMtOTljZS00ODM2LWE2YTQtYmE5OWEzYTk0NmUybHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaFRSegKFBt6J0WHYml8Nc40AAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIIlWplX3vYO8rHvFNDCqqSjS8pE2z0HcqTkqM3tUYOl5pGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2jMquBlgg1BHXnRSOz1dFVGAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggvFrdwRkNyN8RpJ3VIFT/nx3qW5dKtnsSkeJWtqGPpG9kbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTpiZWZkMTc5ZC1kMTIxLTQwNGEtODRjZC02MDVlODE4NDA3ZGEvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDo4MTU2ZGUwZi04ZGE0LTQ0NmEtODk3Mi0wMTM2ODllNmY4NjVyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggiVamVfe9g7yse8U0MKqpKNLykTbPQdypOSoze1Rg6XmiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIOjz1e0yz6ZSsBj1s48OX7mlbA+lyY3aBmpLgK9s/2TYomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIEpc7tsHznkscJCasdQ+caFsgv7XtlLrlQDN6UcuWfz4dGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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"><link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmJlZmQxNzlkLWQxMjEtNDA0YS04NGNkLTYwNWU4MTg0MDdkYQAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNoVeJD3Ig55vSGhN7rIFtIiQAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6Njc5NDY1MzMtOTljZS00ODM2LWE2YTQtYmE5OWEzYTk0NmUybHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaFRSegKFBt6J0WHYml8Nc40AAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIIlWplX3vYO8rHvFNDCqqSjS8pE2z0HcqTkqM3tUYOl5pGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2jMquBlgg1BHXnRSOz1dFVGAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggvFrdwRkNyN8RpJ3VIFT/nx3qW5dKtnsSkeJWtqGPpG9kbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYTpiZWZkMTc5ZC1kMTIxLTQwNGEtODRjZC02MDVlODE4NDA3ZGEvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDo4MTU2ZGUwZi04ZGE0LTQ0NmEtODk3Mi0wMTM2ODllNmY4NjVyY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggiVamVfe9g7yse8U0MKqpKNLykTbPQdypOSoze1Rg6XmiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYIOjz1e0yz6ZSsBj1s48OX7mlbA+lyY3aBmpLgK9s/2TYomN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIEpc7tsHznkscJCasdQ+caFsgv7XtlLrlQDN6UcuWfz4dGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>body{margin:0}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: сверху шапка профиля, под ней — квадраты ленты (пустые ячейки для новых постов). Нажатый пост открывается справа, на телефоне — снизу. */
+:root{
+  --bg:#f6f1ea; --surface:#fffdf9; --line:#e6ddd1; --fg:#3b2f28; --muted:#8a7a6d;
+  --accent:#c4683f; --accent-ink:#fff; --olive:#7d8a5a; --chip:#efe6da; --danger:#b5452f;
+  --shadow:0 1px 2px rgba(59,47,40,.06),0 8px 24px rgba(59,47,40,.08);
+  --display:"Comfortaa","Nunito Sans",system-ui,sans-serif;
+  --body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1d1916; --surface:#27211d; --line:#3a312a; --fg:#f1e8de; --muted:#ab9b8d;
+  --accent:#e08a5f; --accent-ink:#1d1916; --olive:#a6b47f; --chip:#342b25; --danger:#e07a63;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1d1916; --surface:#27211d; --line:#3a312a; --fg:#f1e8de; --muted:#ab9b8d;
+  --accent:#e08a5f; --accent-ink:#1d1916; --olive:#a6b47f; --chip:#342b25; --danger:#e07a63;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:minmax(0,470px) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr);padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px))}}
+.topbar{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;justify-content:space-between}
+.topbar h1{font-family:var(--display);font-size:20px;margin:0;letter-spacing:-.01em}
+.status{font-size:13px;color:var(--muted)}
+.status b{color:var(--olive);font-weight:700}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 14px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--danger)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:transparent;padding:8px 12px;font-weight:600;font-size:13px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--chip);color:var(--fg)}
+
+/* профиль */
+.phone{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.prof{padding:14px 16px 10px;display:grid;gap:10px}
+.prof-top{display:flex;align-items:center;gap:18px}
+.ava{width:80px;height:80px;border-radius:50%;flex:none;border:1px solid var(--line);background:var(--chip) center/cover no-repeat;display:grid;place-items:center;font-size:12px;color:var(--muted);text-align:center;padding:6px;position:relative}
+.ava button{position:absolute;inset:0;border-radius:50%;border:0;background:transparent}
+.stats{display:flex;justify-content:space-around;flex:1;text-align:center;gap:6px}
+.stats b{display:block;font-size:17px;font-variant-numeric:tabular-nums}
+.stats span{font-size:12.5px;color:var(--muted)}
+.name{font-weight:700}
+.cat{color:var(--muted);font-size:13.5px}
+.bio{white-space:pre-wrap;font-size:14px}
+.nick{font-family:var(--display);font-weight:700;font-size:15px;padding:12px 16px 0}
+.prof-edit{display:grid;gap:8px}
+.prof-edit label{display:grid;gap:3px;font-size:12px;color:var(--muted);font-weight:600}
+.prof-edit input,.prof-edit textarea,.ed textarea,.ed input{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--bg);width:100%}
+.prof-edit .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tabs{display:flex;border-top:1px solid var(--line);justify-content:center;gap:40px;padding:8px 0 6px;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.tabs span:first-child{color:var(--fg)}
+
+/* сетка */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}
+.tile,.slot{position:relative;aspect-ratio:3/4;overflow:hidden;border:0;padding:0;margin:0}
+.sq .tile,.sq .slot{aspect-ratio:1/1}
+.tile{background:var(--chip);cursor:grab;touch-action:manipulation;-webkit-touch-callout:none;user-select:none}
+.tile img,.tile video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
+.tile .open{position:absolute;inset:0;border:0;background:transparent;width:100%;height:100%}
+.tile.sel::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 3px var(--accent);pointer-events:none}
+.tile .ico{position:absolute;top:6px;left:6px;display:flex;gap:4px;pointer-events:none}
+.tile .ico span{background:rgba(0,0,0,.5);color:#fff;border-radius:6px;font-size:11px;font-weight:700;padding:2px 5px;line-height:1.3}
+.x{position:absolute;top:5px;right:5px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:17px;line-height:1;display:grid;place-items:center;z-index:2}
+.x:hover{background:var(--danger)}
+.tile .num{position:absolute;left:6px;bottom:6px;background:rgba(255,253,249,.92);color:#3b2f28;border-radius:999px;font-size:11px;font-weight:700;padding:1px 7px;font-variant-numeric:tabular-nums;pointer-events:none}
+.hide-num .tile .num{display:none}
+.tile.drop::before{content:"Отпустите — заменить";position:absolute;inset:0;z-index:3;display:grid;place-items:center;text-align:center;padding:8px;background:rgba(196,104,63,.85);color:#fff;font-weight:700;font-size:13px}
+.ghost-tile{opacity:.35}
+.chosen-tile{transform:scale(.96)}
+.slot{background:transparent;outline:1.5px dashed var(--line);outline-offset:-4px;color:var(--muted);display:grid;place-items:center;align-content:center;gap:2px;cursor:pointer;font-size:12px;font-weight:600}
+.slot b{font-size:26px;font-weight:400;line-height:1;color:var(--accent)}
+.slot:hover{background:var(--chip)}
+#grid .over{outline:3px solid var(--accent);outline-offset:-3px;background:var(--chip)}
+.tile{touch-action:pan-y}
+.slot.drop{background:var(--chip);outline-color:var(--accent)}
+.hint{font-size:12.5px;color:var(--muted);padding:10px 14px 14px;border-top:1px solid var(--line)}
+
+/* выбор: отдельные посты или карусель */
+.ask{position:fixed;inset:0;z-index:55;background:rgba(29,25,22,.4);display:grid;place-items:end center;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+@media (min-width:600px){.ask{place-items:center}}
+.ask-box{background:var(--surface);border-radius:18px;padding:18px;display:grid;gap:10px;width:min(100%,380px);box-shadow:var(--shadow)}
+.ask-box h3{margin:0;font-family:var(--display);font-size:16px}
+.ask-box p{margin:0;color:var(--muted);font-size:14px}
+
+/* импорт из скриншота */
+.imp{position:fixed;inset:0;z-index:56;background:rgba(29,25,22,.45);display:grid;place-items:center;padding:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.imp-box{background:var(--surface);border-radius:18px;padding:16px;display:grid;gap:10px;width:min(100%,560px);max-height:100%;overflow:auto;box-shadow:var(--shadow)}
+.imp-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.imp-head h3{margin:0;font-family:var(--display);font-size:16px}
+.imp-msg{margin:0;font-size:14px;color:var(--muted)}
+.imp-cv{background:var(--chip);border-radius:12px;overflow:hidden;display:grid;place-items:center}
+.imp-cv canvas{max-width:100%;max-height:58vh;width:auto;height:auto;display:block;cursor:pointer;touch-action:manipulation}
+.imp-sl{display:grid;gap:6px;font-size:13px;color:var(--muted);font-weight:600}
+.imp-sl label{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:8px}
+.imp-sl input{width:100%}
+.divider{grid-column:1/-1;padding:10px 12px 8px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:8px}
+.divider button{border:0;background:transparent;color:var(--accent);font-weight:700;font-size:12px;padding:0}
+.tile.old{cursor:default}
+.tile.old::before{content:"";position:absolute;inset:0;background:rgba(255,253,249,.12);pointer-events:none}
+.headshot{display:block;width:100%}
+.headshot-bar{display:flex;justify-content:flex-end;gap:8px;padding:8px 12px;border-bottom:1px solid var(--line)}
+
+/* редактор поста */
+.ed{position:sticky;top:max(16px,env(safe-area-inset-top,0px));background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px;display:grid;gap:14px}
+.ed h2{font-family:var(--display);font-size:17px;margin:0}
+.ed-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ed-close{display:none}
+.slide{position:relative;aspect-ratio:4/5;background:var(--chip);border-radius:12px;overflow:hidden;max-width:420px;width:100%;justify-self:center}
+.slide img,.slide video{width:100%;height:100%;object-fit:cover;display:block}
+.slide .nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,253,249,.9);color:#3b2f28;font-size:18px;display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.slide .prev{left:8px}.slide .next{right:8px}
+.slide .cnt{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.55);color:#fff;border-radius:999px;font-size:12px;padding:2px 8px;font-variant-numeric:tabular-nums}
+.dots{display:flex;justify-content:center;gap:5px}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--accent)}
+.strip{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px}
+.th{flex:none;width:64px;aspect-ratio:4/5;border-radius:8px;overflow:hidden;border:2px solid transparent;background:var(--chip);cursor:grab;position:relative;padding:0}
+.th.on{border-color:var(--accent)}
+.th img,.th video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.th .sel-btn{position:absolute;inset:0;border:0;background:transparent}
+.th .x{width:22px;height:22px;font-size:14px;top:3px;right:3px}
+.th b{position:absolute;left:3px;bottom:3px;font-size:10px;background:rgba(0,0,0,.5);color:#fff;border-radius:4px;padding:0 4px;pointer-events:none}
+.th-add{flex:none;width:64px;aspect-ratio:4/5;border-radius:8px;border:1.5px dashed var(--line);background:transparent;color:var(--accent);font-size:24px}
+.row-btns{display:flex;flex-wrap:wrap;gap:8px}
+.lbl{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between}
+.cap{min-height:180px;resize:vertical;line-height:1.45}
+.ed-empty{color:var(--muted);text-align:center;padding:30px 10px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 10px 8px 16px;border-radius:999px;font-size:14px;font-weight:600;z-index:70;opacity:0;transition:opacity .2s;pointer-events:none;max-width:calc(100% - 32px);display:flex;align-items:center;gap:10px}
+.toast.on{opacity:1;pointer-events:auto}
+.toast button{border:0;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:4px 12px;font-weight:700;font-size:13px}
+.toast button[hidden]{display:none}
+.busy{position:fixed;inset:0;background:rgba(29,25,22,.35);display:grid;place-items:center;z-index:60}
+.busy div{background:var(--surface);padding:14px 20px;border-radius:12px;font-weight:600;box-shadow:var(--shadow)}
+
+@media (max-width:860px){
+  .ed{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:88vh;overflow:auto;border-radius:18px 18px 0 0;z-index:40;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));transform:translateY(105%);transition:transform .25s ease}
+  .ed.open{transform:none}
+  .ed-close{display:inline-flex}
+  .ed .ed-empty{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+
+<div class="wrap">
+  <div class="topbar">
+    <div>
+      <h1>Планировщик ленты</h1>
+      <div class="status" id="status">Загружаю ленту…</div>
+    </div>
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Формат плиток">
+        <button id="r34" aria-pressed="true">3:4</button>
+        <button id="r11" aria-pressed="false">1:1</button>
+      </div>
+      <button class="btn" id="numBtn" aria-pressed="true">№ публикации</button>
+      <button class="btn primary" id="impBtn">Из скриншота Instagram</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="phone">
+      <div class="nick" id="pNick">paper.buddies</div>
+      <div class="prof" id="prof"></div>
+      <div class="tabs"><span>Публикации</span><span>Reels</span><span>Отметки</span></div>
+      <div class="grid" id="grid"></div>
+      <div class="hint">Нажмите на пустой квадрат, чтобы добавить фото или видео. Тяните пост в любой квадрат, хоть в пустой (на телефоне сначала задержите палец). Пустые места только для планирования: в Instagram посты встанут подряд. ✕ удаляет пост. Нажатие на пост открывает подпись и карусель. Цифра внизу — очередь: сначала выкладывайте №1.</div>
+    </div>
+  </div>
+
+  <aside class="ed" id="ed" aria-label="Пост"></aside>
+</div>
+<input type="file" id="fileNew" accept="image/*,video/mp4,video/webm,video/quicktime" multiple hidden>
+<input type="file" id="fileAdd" accept="image/*,video/mp4,video/webm,video/quicktime" multiple hidden>
+<input type="file" id="fileRep" accept="image/*,video/mp4,video/webm,video/quicktime" hidden>
+<input type="file" id="fileAva" accept="image/*" hidden>
+<div class="toast" id="toast" role="status"><span id="toastTxt"></span><button id="toastBtn" hidden>Вернуть</button></div>
+<div class="imp" id="imp" hidden><div class="imp-box">
+  <div class="imp-head"><h3 id="impTitle">Скриншот профиля</h3><button class="btn ghost" id="impClose">Закрыть</button></div>
+  <div class="seg" role="group" aria-label="Что вырезать"><button id="impModePosts" aria-pressed="true">Посты</button><button id="impModeHead" aria-pressed="false">Шапка профиля</button></div>
+  <p id="impMsg" class="imp-msg">Сделайте на телефоне скриншот своего профиля и выберите его здесь. Посты я вырежу сам, а шапку с описанием и «Актуальным» вставлю картинкой.</p>
+  <div class="imp-cv" id="impCvWrap" hidden><canvas id="impCv"></canvas></div>
+  <div class="imp-sl" id="impSl" hidden>
+    <label>Верх <input type="range" id="slTop" min="0" max="1000" value="60"></label>
+    <label>Низ <input type="range" id="slBot" min="0" max="1000" value="500"></label>
+  </div>
+  <div class="row-btns">
+    <button class="btn" id="impPick">Выбрать скриншот</button>
+    <button class="btn" id="impManual" hidden>Выделить вручную</button>
+    <button class="btn primary" id="impOk" disabled>Добавить</button>
+  </div>
+</div></div>
+<input type="file" id="fileShot" accept="image/*" multiple hidden>
+<div class="busy" id="busy" hidden><div id="busyTxt">Загружаю…</div></div>
+<div class="ask" id="ask" hidden><div class="ask-box">
+  <h3 id="askTitle">Выбрано несколько файлов</h3>
+  <p>Как их разложить?</p>
+  <button class="btn primary" id="askSep">Каждый в свой квадрат</button>
+  <button class="btn" id="askCar">Одним постом-каруселью</button>
+  <button class="btn ghost" id="askNo">Отмена</button>
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const uid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);
+const DEFAULT={
+  profile:{name:"Ваше имя",nick:"ваш.ник",cat:"",
+    bio:"Нажмите «Редактировать профиль», чтобы вписать описание.\nИли загрузите скриншот шапки кнопкой «Из скриншота Instagram».",
+    link:"",followers:"0",following:"0",avatar:null},
+  posts:[], old:[], headShot:null, ratio:"34", showNum:true
+};
+let S=JSON.parse(JSON.stringify(DEFAULT));
+let sel=null, slide=0, editProf=false, readOnly=false;
+let mode="local";
+let db=null, assets=null, docRef=null, lastSaved="", saveT=null, sortGrid=null, sortStrip=null, dirty=false;
+const canon=o=>JSON.stringify(o,(k,v)=>v&&typeof v==="object"&&!Array.isArray(v)?Object.keys(v).sort().reduce((a,x)=>(a[x]=v[x],a),{}):v);
+
+/* ---------- хранилище ---------- */
+const urlCache={};
+let idb=null;
+function idbOpen(){return new Promise(r=>{try{const q=indexedDB.open("pb-feed",1);q.onupgradeneeded=()=>q.result.createObjectStore("img");q.onsuccess=()=>{idb=q.result;r(idb)};q.onerror=()=>r(null)}catch(e){r(null)}})}
+function idbGet(k){return new Promise(r=>{if(!idb)return r(null);try{const t=idb.transaction("img").objectStore("img").get(k);t.onsuccess=()=>r(t.result||null);t.onerror=()=>r(null)}catch(e){r(null)}})}
+function idbPut(k,v){return new Promise(r=>{if(!idb)return r(false);try{const t=idb.transaction("img","readwrite");t.objectStore("img").put(v,k);t.oncomplete=()=>r(true);t.onerror=()=>r(false)}catch(e){r(false)}})}
+const live=()=>S.posts.filter(Boolean);
+const numOf=p=>{const l=live();return l.length-l.indexOf(p)};
+const isVid=r=>!!r&&r.indexOf("v:")>-1;
+function src(ref){
+  if(!ref)return "";
+  if(ref.startsWith("local:"))return urlCache[ref]||"";
+  return "/_blob/"+ref.replace(/^v:/,"");
+}
+function media(ref,cls){
+  if(!ref)return "";
+  return isVid(ref)?`<video src="${src(ref)}#t=0.1" muted playsinline preload="metadata" ${cls||""}></video>`:`<img src="${src(ref)}" alt="" loading="lazy">`;
+}
+async function warmLocal(){
+  const refs=[];live().forEach(p=>p.imgs.forEach(i=>refs.push(i)));if(S.profile.avatar)refs.push(S.profile.avatar);(S.old||[]).forEach(o=>refs.push(o.img));if(S.headShot)refs.push(S.headShot);
+  for(const r of refs){if(r.startsWith("local:")&&!urlCache[r]){const b=await idbGet(r);if(b)urlCache[r]=URL.createObjectURL(b)}}
+}
+function shrink(file){
+  return new Promise((res,rej)=>{
+    const img=new Image();const u=URL.createObjectURL(file);
+    img.onload=()=>{const M=1440;let w=img.naturalWidth,h=img.naturalHeight;const k=Math.min(1,M/Math.max(w,h));w=Math.round(w*k);h=Math.round(h*k);
+      const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(img,0,0,w,h);URL.revokeObjectURL(u);
+      c.toBlob(b=>b?res(b):rej(new Error("canvas")),"image/jpeg",.88)};
+    img.onerror=()=>{URL.revokeObjectURL(u);rej(new Error(`«${file.name}» не открывается как картинка`))};
+    img.src=u;
+  });
+}
+const MB=1024*1024;
+async function store(file){
+  const vid=file.type.startsWith("video/");
+  let blob,type;
+  if(vid){
+    if(file.type==="video/quicktime")throw new Error(`«${file.name}» в формате MOV. Сохраните видео как MP4 и добавьте снова`);
+    if(mode==="cloud"&&file.size>20*MB)throw new Error(`Видео «${file.name}» больше 20 МБ. Укоротите или сожмите его`);
+    blob=file;type=file.type;
+  }else{blob=await shrink(file);type="image/jpeg"}
+  if(mode==="cloud"&&assets){const r=await assets.upload(blob,{type});return (vid?"v:":"")+r.id}
+  const k="local:"+(vid?"v:":"")+uid();await idbPut(k,blob);urlCache[k]=URL.createObjectURL(blob);return k;
+}
+async function storeMany(files){
+  const out=[];const n=files.length;busy(true,n>1?`Загружаю 0 из ${n}…`:"Загружаю…");
+  for(let i=0;i<n;i++){
+    try{out.push(await store(files[i]))}catch(e){toast(errText(e))}
+    if(n>1)$("#busyTxt").textContent=`Загружаю ${i+1} из ${n}…`;
+  }
+  busy(false);return out;
+}
+function errText(e){
+  const c=e&&e.code;
+  if(c==="too_large")return "Файл больше 20 МБ";
+  if(c==="quota_or_state")return "Место закончилось. Удалите лишние посты";
+  if(c==="rate_limited")return "Слишком часто. Подождите минуту";
+  if(c==="unsupported_type")return "Такой формат не подходит: нужны JPG, PNG или MP4";
+  return (e&&e.message)||"Не получилось загрузить файл";
+}
+function usedSet(){const u=new Set();live().forEach(p=>p.imgs.forEach(i=>u.add(i)));if(S.profile.avatar)u.add(S.profile.avatar);(S.old||[]).forEach(o=>u.add(o.img));if(S.headShot)u.add(S.headShot);return u}
+let pendingForget=[];
+function forgetLater(refs){pendingForget.push(...refs.filter(Boolean))}
+function flushForget(){
+  if(mode!=="cloud"||!assets){pendingForget=[];return}
+  const u=usedSet();pendingForget.filter(r=>!r.startsWith("local:")&&!u.has(r)).forEach(r=>assets.delete(r.replace(/^v:/,"")).catch(()=>{}));pendingForget=[];
+}
+
+/* ---------- сохранение ---------- */
+function save(){
+  if(readOnly)return;
+  clearTimeout(saveT);dirty=true;
+  saveT=setTimeout(async()=>{
+    const json=JSON.stringify(S);
+    if(mode==="cloud"&&docRef){
+      lastSaved=canon(normalize(JSON.parse(json)));
+      try{await docRef.set(JSON.parse(json));setStatus()}catch(e){toast("Не сохранилось: "+(e.message||e.code))}
+      finally{dirty=false}
+    }else{try{localStorage.setItem("pb-feed",json)}catch(e){}dirty=false}
+  },500);
+}
+function setStatus(){
+  const n=live().length;
+  const where=mode==="cloud"?"<b>Сохраняется автоматически</b>":mode==="view"?"Только просмотр":"Сохраняется только в этом браузере";
+  $("#status").innerHTML=`${n} ${plural(n,"пост","поста","постов")} · ${where}`;
+}
+function plural(n,a,b,c){const m=n%10,h=n%100;return m===1&&h!==11?a:m>=2&&m<=4&&(h<10||h>=20)?b:c}
+
+/* ---------- отрисовка ---------- */
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function renderProf(){
+  const p=S.profile;$("#pNick").textContent=p.nick||"ник";
+  const ava=p.avatar?`style="background-image:url('${src(p.avatar)}')"`:"";
+  let h=`<div class="prof-top"><div class="ava" ${ava}>${p.avatar?"":"Фото профиля"}${readOnly?"":'<button id="avaBtn" aria-label="Сменить фото профиля"></button>'}</div>
+  <div class="stats"><div><b>${live().length+S.old.length}</b><span>публикаций</span></div><div><b>${esc(p.followers)}</b><span>подписчиков</span></div><div><b>${esc(p.following)}</b><span>подписок</span></div></div></div>`;
+  if(editProf){
+    h+=`<div class="prof-edit">
+      <div class="row"><label>Имя<input id="fName" value="${esc(p.name)}"></label><label>Ник<input id="fNick" value="${esc(p.nick)}"></label></div>
+      <label>Категория<input id="fCat" value="${esc(p.cat)}"></label>
+      <label>Описание <span id="bioCnt"></span><textarea id="fBio" rows="5">${esc(p.bio)}</textarea></label>
+      <label>Ссылка<input id="fLink" value="${esc(p.link)}"></label>
+      <div class="row"><label>Подписчики<input id="fFol" value="${esc(p.followers)}"></label><label>Подписки<input id="fFing" value="${esc(p.following)}"></label></div>
+      <button class="btn primary" id="profDone">Готово</button></div>`;
+  }else{
+    h+=`<div><div class="name">${esc(p.name)}</div>${p.cat?`<div class="cat">${esc(p.cat)}</div>`:""}<div class="bio">${esc(p.bio)}</div>${p.link?`<div style="color:var(--accent);font-weight:600;font-size:14px">${esc(p.link)}</div>`:""}</div>
+    ${readOnly?"":'<button class="btn" id="profEdit">Редактировать профиль</button>'}`;
+  }
+  if(S.headShot&&!editProf){
+    $("#pNick").hidden=true;
+    $("#prof").innerHTML=`<img class="headshot" src="${src(S.headShot)}" alt="Шапка профиля со скриншота">${readOnly?"":`<div class="headshot-bar"><button class="btn" id="hsNew">Обновить скрин</button><button class="btn" id="hsDraw">Своя шапка</button></div>`}`;
+    $("#prof").style.padding="0";
+    if($("#hsNew"))$("#hsNew").onclick=()=>openImp("head");
+    if($("#hsDraw"))$("#hsDraw").onclick=()=>{const old=S.headShot;S.headShot=null;forgetLater([old]);flushForget();save();render()};
+    return;
+  }
+  $("#pNick").hidden=false;$("#prof").style.padding="";
+  $("#prof").innerHTML=h;
+  if(editProf){
+    const upd=()=>{const b=$("#fBio").value.length;$("#bioCnt").textContent=`${b} / 150`;$("#bioCnt").style.color=b>150?"var(--danger)":""};
+    upd();
+    [["#fName","name"],["#fNick","nick"],["#fCat","cat"],["#fBio","bio"],["#fLink","link"],["#fFol","followers"],["#fFing","following"]].forEach(([id,k])=>{
+      $(id).addEventListener("input",e=>{S.profile[k]=e.target.value;if(k==="bio")upd();if(k==="nick")$("#pNick").textContent=e.target.value;save()})});
+    $("#profDone").onclick=()=>{editProf=false;renderProf()};
+  }else if($("#profEdit"))$("#profEdit").onclick=()=>{editProf=true;renderProf()};
+  if($("#avaBtn"))$("#avaBtn").onclick=()=>$("#fileAva").click();
+}
+let slotIndex=0;
+function renderGrid(){
+  const g=$("#grid");const box=g.parentElement;
+  box.classList.toggle("sq",S.ratio==="11");box.classList.toggle("hide-num",!S.showNum);
+  $("#r34").setAttribute("aria-pressed",S.ratio!=="11");$("#r11").setAttribute("aria-pressed",S.ratio==="11");
+  $("#numBtn").setAttribute("aria-pressed",S.showNum);$("#numBtn").classList.toggle("ghost",!S.showNum);
+  const cells=S.posts.slice();
+  if(!readOnly){const extra=3+((3-cells.length%3)%3);for(let k=0;k<extra;k++)cells.push(null)}
+  let firstEmpty=true;
+  g.innerHTML=cells.map((p,i)=>{
+    if(!p){if(readOnly)return `<div class="slot" style="cursor:default"></div>`;const lab=firstEmpty?"фото или видео":"";firstEmpty=false;return `<button class="slot" data-cell="${i}"><b>+</b>${lab}</button>`}
+    const c=p.imgs[0];const many=p.imgs.length>1;const hasVid=p.imgs.some(isVid);
+    return `<div class="tile${p.id===sel?" sel":""}" data-id="${p.id}" data-cell="${i}">
+      ${media(c)}
+      <button class="open" aria-label="Открыть пост ${numOf(p)}"></button>
+      <span class="ico">${p.pin?"<span>📌</span>":""}${many?`<span>▣ ${p.imgs.length}</span>`:""}${hasVid?"<span>▶</span>":""}</span>
+      ${readOnly?"":`<button class="x" data-del="${p.id}" aria-label="Удалить пост">✕</button>`}
+      <span class="num">№${numOf(p)}</span></div>`}).join("")
+    +(S.old.length?`<div class="divider"><span>Уже в Instagram · ${S.old.length}</span>${readOnly?"":`<button id="oldClear">Убрать все</button>`}</div>`+S.old.map(o=>`<div class="tile old" data-old="${o.id}"><img src="${src(o.img)}" alt="" loading="lazy">${readOnly?"":`<button class="x" aria-label="Убрать">✕</button>`}</div>`).join(""):"");
+  g.querySelectorAll(".tile.old .x").forEach(b=>b.onclick=e=>{e.stopPropagation();const id=b.parentElement.dataset.old;const prev=JSON.stringify(S.old);const k=S.old.findIndex(o=>o.id===id);const [o]=S.old.splice(k,1);forgetLater([o.img]);save();render();toast("Убрано",()=>{S.old=JSON.parse(prev);pendingForget=[];save();render()},()=>flushForget())});
+  if($("#oldClear"))$("#oldClear").onclick=()=>{const prev=JSON.stringify(S.old);forgetLater(S.old.map(o=>o.img));S.old=[];save();render();toast("Старые посты убраны",()=>{S.old=JSON.parse(prev);pendingForget=[];save();render()},()=>flushForget())};
+  g.querySelectorAll(".tile:not(.old)").forEach(t=>{
+    const id=t.dataset.id;
+    t.querySelector(".open").onclick=()=>{if(dragJustEnded)return;openPost(id)};
+    if(readOnly)return;
+    t.querySelector(".x").onclick=e=>{e.stopPropagation();delPost(id)};
+    t.addEventListener("dragover",e=>{if(hasFiles(e)){e.preventDefault();t.classList.add("drop")}});
+    t.addEventListener("dragleave",()=>t.classList.remove("drop"));
+    t.addEventListener("drop",async e=>{if(!hasFiles(e))return;e.preventDefault();e.stopPropagation();t.classList.remove("drop");
+      const f=okFiles(e.dataTransfer.files);if(!f.length)return;
+      const [r]=await storeMany([f[0]]);if(!r)return;const p=live().find(x=>x.id===id);const old=p.imgs[0];p.imgs[0]=r;forgetLater([old]);flushForget();save();render();toast("Обложка заменена")});
+    t.addEventListener("pointerdown",e=>startDrag(e,t));
+  });
+  g.querySelectorAll(".slot[data-cell]").forEach(s=>{
+    const cell=+s.dataset.cell;
+    s.onclick=()=>{targetCell=cell;$("#fileNew").click()};
+    s.addEventListener("dragover",e=>{if(hasFiles(e)){e.preventDefault();s.classList.add("drop")}});
+    s.addEventListener("dragleave",()=>s.classList.remove("drop"));
+    s.addEventListener("drop",e=>{if(!hasFiles(e))return;e.preventDefault();s.classList.remove("drop");const f=okFiles(e.dataTransfer.files);if(f.length){targetCell=cell;addNew(f)}});
+  });
+}
+/* свободное перетаскивание: пост можно бросить в любой квадрат, занятый — меняются местами */
+let drag=null,dragJustEnded=false,targetCell=null;
+function startDrag(e,t){
+  if(e.button>0||e.target.closest(".x"))return;
+  const touch=e.pointerType!=="mouse";
+  const d={t,id:t.dataset.id,from:+t.dataset.cell,x0:e.clientX,y0:e.clientY,on:false,pid:e.pointerId,timer:null};
+  drag=d;
+  if(touch)d.timer=setTimeout(()=>{if(drag===d)beginDrag(e.clientX,e.clientY)},280);
+  window.addEventListener("pointermove",onDragMove,{passive:false});
+  window.addEventListener("pointerup",endDrag);window.addEventListener("pointercancel",cancelDrag);
+}
+function beginDrag(x,y){
+  const d=drag;if(!d||d.on)return;d.on=true;
+  const r=d.t.getBoundingClientRect();
+  const c=d.t.cloneNode(true);c.querySelectorAll("button").forEach(b=>b.remove());
+  Object.assign(c.style,{position:"fixed",left:r.left+"px",top:r.top+"px",width:r.width+"px",height:r.height+"px",zIndex:80,pointerEvents:"none",opacity:".9",boxShadow:"0 10px 30px rgba(0,0,0,.3)",borderRadius:"6px",transform:"scale(1.04)"});
+  document.body.appendChild(c);d.clone=c;d.dx=x-r.left;d.dy=y-r.top;d.t.style.opacity=".3";
+  if(navigator.vibrate)try{navigator.vibrate(15)}catch(_){}
+}
+function cellAt(x,y){const el=document.elementFromPoint(x,y);const c=el&&el.closest("#grid [data-cell]");return c||null}
+function onDragMove(e){
+  const d=drag;if(!d)return;
+  if(!d.on){
+    const far=Math.hypot(e.clientX-d.x0,e.clientY-d.y0)>6;
+    if(e.pointerType==="mouse"){if(far)beginDrag(e.clientX,e.clientY);else return}
+    else{if(far){clearTimeout(d.timer);cleanupDrag()}return}
+  }
+  e.preventDefault();
+  d.clone.style.left=(e.clientX-d.dx)+"px";d.clone.style.top=(e.clientY-d.dy)+"px";
+  document.querySelectorAll("#grid .over").forEach(x=>x.classList.remove("over"));
+  const c=cellAt(e.clientX,e.clientY);if(c&&c!==d.t)c.classList.add("over");
+}
+function endDrag(e){
+  const d=drag;if(!d)return;clearTimeout(d.timer);
+  if(d.on){
+    const c=cellAt(e.clientX,e.clientY);
+    if(c){const to=+c.dataset.cell;if(to!==d.from){
+      while(S.posts.length<=to)S.posts.push(null);
+      const tmp=S.posts[to];S.posts[to]=S.posts[d.from];S.posts[d.from]=tmp;trimCells();save();
+    }}
+    dragJustEnded=true;setTimeout(()=>dragJustEnded=false,50);
+  }
+  cleanupDrag();if(d.on)renderGrid(),renderProf(),renderEd(),setStatus();
+}
+function cancelDrag(){if(drag)clearTimeout(drag.timer);cleanupDrag();renderGrid()}
+function cleanupDrag(){
+  const d=drag;drag=null;
+  window.removeEventListener("pointermove",onDragMove);window.removeEventListener("pointerup",endDrag);window.removeEventListener("pointercancel",cancelDrag);
+  if(d){if(d.clone)d.clone.remove();d.t.style.opacity=""}
+  document.querySelectorAll("#grid .over").forEach(x=>x.classList.remove("over"));
+}
+function trimCells(){while(S.posts.length&&!S.posts[S.posts.length-1])S.posts.pop()}
+const hasFiles=e=>e.dataTransfer&&[...e.dataTransfer.types].includes("Files");
+const okFiles=fl=>[...fl].filter(x=>x.type.startsWith("image/")||x.type.startsWith("video/"));
+
+function renderEd(){
+  const ed=$("#ed");const p=live().find(x=>x.id===sel);
+  if(!p){ed.classList.remove("open");ed.innerHTML=`<div class="ed-empty">Нажмите на пост в ленте — здесь откроется, как он выглядит, подпись и фото карусели.</div>`;return}
+  slide=Math.max(0,Math.min(slide,p.imgs.length-1));
+  const ro=readOnly,cur=p.imgs[slide];
+  ed.innerHTML=`<div class="ed-head"><h2>Пост №${numOf(p)} в очереди</h2><button class="btn ghost ed-close" id="edClose">Закрыть</button></div>
+  <div class="slide">${cur?(isVid(cur)?`<video src="${src(cur)}" controls playsinline></video>`:`<img src="${src(cur)}" alt="">`):""}
+    ${p.imgs.length>1?`<button class="nav prev" id="prev" aria-label="Предыдущее">‹</button><button class="nav next" id="next" aria-label="Следующее">›</button><span class="cnt">${slide+1}/${p.imgs.length}</span>`:""}</div>
+  ${p.imgs.length>1?`<div class="dots">${p.imgs.map((_,k)=>`<i class="${k===slide?"on":""}"></i>`).join("")}</div>`:""}
+  ${ro?"":`<div><div class="lbl"><span>Фото в посте · тяните, чтобы поменять порядок</span><span>${p.imgs.length}/20</span></div>
+  <div class="strip" id="strip">${p.imgs.map((r,k)=>`<div class="th${k===slide?" on":""}">${media(r)}<button class="sel-btn" data-k="${k}" aria-label="Показать ${k+1}"></button><b>${k+1}</b><button class="x" data-rm="${k}" aria-label="Убрать фото ${k+1}">✕</button></div>`).join("")}
+  ${p.imgs.length<20?`<button class="th-add" id="add" aria-label="Добавить фото в карусель">+</button>`:""}</div></div>
+  <div class="row-btns">
+    <button class="btn" id="rep">Заменить это фото</button>
+    ${slide>0?`<button class="btn" id="cov">Сделать обложкой</button>`:""}
+    ${p.imgs.length>1?`<button class="btn" id="split">Разбить на ${p.imgs.length} поста</button>`:""}
+  </div>
+  <label class="lbl" for="ttl"><span>Название для себя</span></label><input id="ttl" value="${esc(p.title)}" placeholder="Например: Buddies Pizza">`}
+  <div><div class="lbl"><span>Подпись</span>${ro?"":`<span id="capCnt"></span>`}</div>
+  ${ro?`<div style="white-space:pre-wrap">${esc(p.caption)||"—"}</div>`:`<textarea class="cap" id="cap" placeholder="Текст поста">${esc(p.caption)}</textarea>`}</div>
+  ${ro?"":`<div class="row-btns">
+    <button class="btn" id="cpy">Копировать подпись</button>
+    <button class="btn" id="pin">${p.pin?"Открепить":"📌 Закрепить"}</button>
+    <button class="btn danger" id="del">Удалить пост</button>
+  </div>`}`;
+  if(matchMedia("(max-width:860px)").matches)requestAnimationFrame(()=>ed.classList.add("open"));
+  const go=d=>{slide=(slide+d+p.imgs.length)%p.imgs.length;renderEd()};
+  $("#edClose").onclick=()=>{sel=null;ed.classList.remove("open");renderGrid()};
+  if($("#prev")){$("#prev").onclick=()=>go(-1);$("#next").onclick=()=>go(1)}
+  if(ro)return;
+  const upd=()=>{const l=$("#cap").value.length;$("#capCnt").textContent=`${l} / 2200`;$("#capCnt").style.color=l>2200?"var(--danger)":""};upd();
+  $("#cap").addEventListener("input",e=>{p.caption=e.target.value;upd();save()});
+  $("#ttl").addEventListener("input",e=>{p.title=e.target.value;save()});
+  $("#strip").querySelectorAll(".sel-btn").forEach(b=>b.onclick=()=>{slide=+b.dataset.k;renderEd()});
+  $("#strip").querySelectorAll("[data-rm]").forEach(b=>b.onclick=e=>{e.stopPropagation();rmImg(p,+b.dataset.rm)});
+  if($("#add"))$("#add").onclick=()=>$("#fileAdd").click();
+  if(sortStrip)sortStrip.destroy();
+  if(window.Sortable)sortStrip=Sortable.create($("#strip"),{draggable:".th",filter:".x",preventOnFilter:false,animation:150,ghostClass:"ghost-tile",delay:200,delayOnTouchOnly:true,
+    onEnd(ev){if(ev.oldDraggableIndex===ev.newDraggableIndex)return;const [m]=p.imgs.splice(ev.oldDraggableIndex,1);p.imgs.splice(ev.newDraggableIndex,0,m);slide=ev.newDraggableIndex;save();render()}});
+  $("#rep").onclick=()=>$("#fileRep").click();
+  if($("#cov"))$("#cov").onclick=()=>{const [m]=p.imgs.splice(slide,1);p.imgs.unshift(m);slide=0;save();render();toast("Теперь это обложка")};
+  if($("#split"))$("#split").onclick=()=>{const k=S.posts.indexOf(p);const parts=p.imgs.map((r,j)=>({id:uid(),imgs:[r],caption:j===0?p.caption:"",title:j===0?p.title:"",pin:j===0&&p.pin}));S.posts[k]=parts[0];let at=k+1;for(const q of parts.slice(1)){while(at<S.posts.length&&S.posts[at])at++;if(at>=S.posts.length)S.posts.push(q);else S.posts[at]=q;at++}sel=null;save();render();toast(`Разбито на ${parts.length} поста`)};
+  $("#pin").onclick=()=>{if(!p.pin&&live().filter(x=>x.pin).length>=3){toast("Закрепить можно не больше 3 постов");return}p.pin=!p.pin;save();render()};
+  $("#cpy").onclick=()=>{navigator.clipboard?.writeText(p.caption||"").then(()=>toast("Подпись скопирована"),()=>{$("#cap").select();toast("Текст выделен, скопируйте вручную")})};
+  $("#del").onclick=()=>delPost(p.id);
+}
+function rmImg(p,k){
+  const prevPosts=JSON.stringify(S.posts);const [m]=p.imgs.splice(k,1);
+  if(!p.imgs.length){S.posts[S.posts.indexOf(p)]=null;trimCells();sel=null}
+  forgetLater([m]);save();render();
+  undoToast("Фото убрано",prevPosts);
+}
+function delPost(id){
+  const prevPosts=JSON.stringify(S.posts);const k=S.posts.findIndex(x=>x&&x.id===id);if(k<0)return;
+  const p=S.posts[k];S.posts[k]=null;trimCells();if(sel===id)sel=null;forgetLater(p.imgs);save();render();
+  undoToast("Пост удалён",prevPosts);
+}
+function undoToast(msg,prevPosts){
+  toast(msg,()=>{S.posts=JSON.parse(prevPosts);pendingForget=[];save();render();toast("Вернул")},()=>flushForget());
+}
+function openPost(id){sel=id;slide=0;render()}
+function render(){renderProf();renderGrid();renderEd();setStatus()}
+
+/* ---------- добавление ---------- */
+let askFiles=null;
+function addNew(files){
+  files=files.slice(0,40);
+  if(files.length===1){doAdd(files,false);return}
+  askFiles=files;$("#askTitle").textContent=`Выбрано файлов: ${files.length}`;$("#ask").hidden=false;$("#askSep").focus();
+}
+$("#askSep").onclick=()=>{$("#ask").hidden=true;doAdd(askFiles,false)};
+$("#askCar").onclick=()=>{$("#ask").hidden=true;doAdd(askFiles.slice(0,20),true)};
+$("#askNo").onclick=()=>{$("#ask").hidden=true;askFiles=null;targetCell=null};
+async function doAdd(files,carousel){
+  const refs=await storeMany(files);if(!refs.length)return;
+  const items=carousel?[{id:uid(),imgs:refs,caption:"",title:"",pin:false}]:refs.map(r=>({id:uid(),imgs:[r],caption:"",title:"",pin:false}));
+  let at=targetCell==null?S.posts.length:targetCell;targetCell=null;
+  for(const q of items){while(at<S.posts.length&&S.posts[at])at++;while(S.posts.length<at)S.posts.push(null);if(at>=S.posts.length)S.posts.push(q);else S.posts[at]=q;at++}
+  trimCells();
+  save();render();
+  toast(carousel?`Карусель из ${refs.length} добавлена`:refs.length>1?`Добавлено постов: ${refs.length}`:"Пост добавлен");
+}
+const pick=(el,fn)=>el.addEventListener("change",async()=>{const f=okFiles(el.files);el.value="";if(f.length)await fn(f)});
+pick($("#fileNew"),f=>addNew(f));
+pick($("#fileAdd"),async f=>{const p=live().find(x=>x.id===sel);if(!p)return;const refs=await storeMany(f.slice(0,20-p.imgs.length));p.imgs.push(...refs);slide=p.imgs.length-1;save();render()});
+pick($("#fileRep"),async f=>{const p=live().find(x=>x.id===sel);if(!p)return;const [r]=await storeMany([f[0]]);if(!r)return;const old=p.imgs[slide];if(p.imgs.length)p.imgs[slide]=r;else p.imgs.push(r);forgetLater([old]);flushForget();save();render();toast("Заменено")});
+pick($("#fileAva"),async f=>{const [r]=await storeMany([f[0]]);if(!r)return;const old=S.profile.avatar;S.profile.avatar=r;forgetLater([old]);flushForget();save();render()});
+// файлы, брошенные на открытый пост, добавляются в его карусель
+$("#ed").addEventListener("dragover",e=>{if(!readOnly&&sel&&hasFiles(e))e.preventDefault()});
+$("#ed").addEventListener("drop",async e=>{if(readOnly||!sel||!hasFiles(e))return;e.preventDefault();const p=live().find(x=>x.id===sel);if(!p)return;const f=okFiles(e.dataTransfer.files).slice(0,20-p.imgs.length);if(!f.length)return;const refs=await storeMany(f);p.imgs.push(...refs);slide=p.imgs.length-1;save();render();toast(`Добавлено в карусель: ${refs.length}`)});
+$("#r34").onclick=()=>{S.ratio="34";save();renderGrid()};
+$("#r11").onclick=()=>{S.ratio="11";save();renderGrid()};
+$("#numBtn").onclick=()=>{S.showNum=!S.showNum;save();renderGrid()};
+
+let tt,onExpire=null;
+function toast(m,undo,expire){
+  if(onExpire){const f=onExpire;onExpire=null;f()}
+  const t=$("#toast");$("#toastTxt").textContent=m;const b=$("#toastBtn");b.hidden=!undo;
+  b.onclick=()=>{clearTimeout(tt);onExpire=null;t.classList.remove("on");undo&&undo()};
+  onExpire=expire||null;t.classList.add("on");clearTimeout(tt);
+  tt=setTimeout(()=>{t.classList.remove("on");if(onExpire){const f=onExpire;onExpire=null;f()}},undo?6000:2400);
+}
+function busy(on,m){$("#busy").hidden=!on;if(m)$("#busyTxt").textContent=m}
+function normalize(d){const o=Object.assign(JSON.parse(JSON.stringify(DEFAULT)),d||{});o.profile=Object.assign({},DEFAULT.profile,(d&&d.profile)||{});o.posts=(o.posts||[]).map(p=>p&&(p.imgs||[]).filter(Boolean).length?{id:p.id||uid(),imgs:p.imgs.filter(Boolean),caption:p.caption||"",title:p.title||"",pin:!!p.pin}:null);while(o.posts.length&&!o.posts[o.posts.length-1])o.posts.pop();o.old=(o.old||[]).filter(x=>x&&x.img);o.headShot=o.headShot||null;return o}
+
+/* ---------- импорт из скриншота ---------- */
+let imp={mode:"posts",queue:[],img:null,cv:null,tiles:[],ratio:4/3};
+function openImp(mode){imp.mode=mode||"posts";imp.queue=[];imp.img=null;$("#imp").hidden=false;impUI();}
+$("#impBtn").onclick=()=>openImp("posts");
+$("#impClose").onclick=()=>{$("#imp").hidden=true};
+$("#impModePosts").onclick=()=>{imp.mode="posts";if(imp.img)analyze();impUI()};
+$("#impModeHead").onclick=()=>{imp.mode="head";if(imp.img)headDefaults();impUI()};
+$("#impPick").onclick=()=>$("#fileShot").click();
+$("#fileShot").addEventListener("change",()=>{const f=[...$("#fileShot").files].filter(x=>x.type.startsWith("image/"));$("#fileShot").value="";if(!f.length)return;imp.queue=f;nextShot()});
+async function nextShot(){
+  const f=imp.queue.shift();if(!f){imp.img=null;impUI();return}
+  const u=URL.createObjectURL(f);const im=new Image();
+  im.onload=()=>{imp.img=im;if(imp.mode==="head")headDefaults();else analyze();impUI()};
+  im.onerror=()=>{toast("Не открылся скриншот");nextShot()};im.src=u;
+}
+function impUI(){
+  $("#impModePosts").setAttribute("aria-pressed",imp.mode==="posts");$("#impModeHead").setAttribute("aria-pressed",imp.mode==="head");
+  const has=!!imp.img;$("#impCvWrap").hidden=!has;
+  $("#impPick").textContent=has?"Другой скриншот":"Выбрать скриншот";
+  $("#impSl").hidden=!(has&&(imp.mode==="head"||imp.manual));
+  $("#impManual").hidden=!(has&&imp.mode==="posts");$("#impManual").textContent=imp.manual?"Найти автоматически":"Выделить вручную";
+  const msg=$("#impMsg");
+  if(!has)msg.textContent=imp.mode==="head"?"Выберите скриншот верха профиля: ник, фото, описание и «Актуальное».":"Сделайте на телефоне скриншот своего профиля и выберите его здесь. Можно сразу несколько скриншотов, если пролистали ленту вниз.";
+  else if(imp.mode==="head")msg.textContent="Ползунками выделите шапку: от ника до кружков «Актуального».";
+  else{const n=imp.tiles.filter(t=>t.on).length;msg.textContent=imp.tiles.length?`Нашёл постов: ${imp.tiles.length}. Нажмите на пост, чтобы не добавлять его.${imp.queue.length?` Ещё скриншотов: ${imp.queue.length}.`:""}`:"Сетку постов не нашёл. Нажмите «Выделить вручную» и ползунками отметьте ленту."}
+  const n=imp.mode==="head"?(has?1:0):imp.tiles.filter(t=>t.on).length;
+  $("#impOk").disabled=!n;$("#impOk").textContent=imp.mode==="head"?"Поставить шапку":n?`Добавить ${n} ${plural(n,"пост","поста","постов")}`:"Добавить";
+  if(has)drawImp();
+}
+function getData(){const c=document.createElement("canvas");c.width=imp.img.naturalWidth;c.height=imp.img.naturalHeight;const x=c.getContext("2d",{willReadFrequently:true});x.drawImage(imp.img,0,0);return {c,d:x.getImageData(0,0,c.width,c.height).data,W:c.width,H:c.height}}
+function analyze(){
+  imp.manual=false;imp.tiles=[];
+  const {d,W,H}=getData();
+  const px=(x,y)=>{const i=(y*W+x)*4;return [d[i],d[i+1],d[i+2]]};
+  const cnt={};let bg=null,bm=0;
+  for(let y=2;y<H*.06;y+=3)for(const fx of [.05,.5,.95]){const p=px(Math.round(W*fx),Math.round(y));const k=p.map(v=>v>>3).join(",");cnt[k]=(cnt[k]||0)+1;if(cnt[k]>bm){bm=cnt[k];bg=p}}
+  const near=(x,y)=>{const p=px(x,y);return Math.abs(p[0]-bg[0])+Math.abs(p[1]-bg[1])+Math.abs(p[2]-bg[2])<24};
+  // вертикальные щели между колонками
+  function bestCol(a,b){let best={x:-1,len:0,y0:0};for(let x=Math.round(W*a);x<=Math.round(W*b);x++){let run=0,y0=0;for(let y=0;y<H;y++){if(near(x,y)){run++;if(run>best.len)best={x,len:run,y0:y-run+1}}else run=0}}return best}
+  const c1=bestCol(.30,.37),c2=bestCol(.63,.70);
+  if(c1.len<H*.12||c2.len<H*.12){impUI();return}
+  const y0=Math.max(c1.y0,c2.y0),y1=Math.min(c1.y0+c1.len,c2.y0+c2.len);
+  if(y1-y0<H*.1){impUI();return}
+  // ширина щелей
+  const ym=Math.round((y0+y1)/2);
+  const span=x=>{let a=x,b=x;while(a>0&&near(a-1,ym))a--;while(b<W-1&&near(b+1,ym))b++;return [a,b]};
+  const g1=span(c1.x),g2=span(c2.x);
+  const cols=[[0,g1[0]],[g1[1]+1,g2[0]],[g2[1]+1,W]];
+  // горизонтальные щели
+  const rows=[];let inGap=true,start=y0;
+  const isGapRow=y=>{let ok=0,n=0;for(let x=2;x<W-2;x+=3){n++;if(near(x,y))ok++}return ok/n>.97};
+  for(let y=y0;y<y1;y++){const gap=isGapRow(y);if(inGap&&!gap){start=y;inGap=false}else if(!inGap&&gap){rows.push([start,y]);inGap=true}}
+  if(!inGap)rows.push([start,y1]);
+  const hs=rows.map(r=>r[1]-r[0]).filter(h=>h>20).sort((a,b)=>a-b);if(!hs.length){impUI();return}
+  const med=hs[Math.floor(hs.length/2)];
+  rows.filter(r=>r[1]-r[0]>=med*.92).forEach(r=>cols.forEach(c=>{if(c[1]-c[0]>W*.2)imp.tiles.push({x:c[0],y:r[0],w:c[1]-c[0],h:r[1]-r[0],on:true})}));
+  markDupes();impUI();
+}
+function manualTiles(){
+  const W=imp.img.naturalWidth,H=imp.img.naturalHeight;const top=Math.round(+$("#slTop").value/1000*H),bot=Math.round(+$("#slBot").value/1000*H);
+  const cw=W/3,ch=cw*(S.ratio==="11"?1:4/3);imp.tiles=[];
+  for(let y=top;y+ch<=bot+2;y+=ch)for(let c=0;c<3;c++)imp.tiles.push({x:Math.round(c*cw),y:Math.round(y),w:Math.round(cw)-2,h:Math.round(ch)-2,on:true});
+  markDupes();
+}
+function headDefaults(){$("#slTop").value=55;$("#slBot").value=420}
+$("#impManual").onclick=()=>{if(imp.manual){analyze()}else{imp.manual=true;$("#slTop").value=450;$("#slBot").value=1000;manualTiles();impUI()}};
+["#slTop","#slBot"].forEach(id=>$(id).addEventListener("input",()=>{if(+$("#slTop").value>=+$("#slBot").value-20)return;if(imp.mode==="posts"&&imp.manual)manualTiles();impUI()}));
+// отпечатки, чтобы не добавить один пост дважды с разных скриншотов
+const hashes=[];
+function aHash(srcCanvas,r){const c=document.createElement("canvas");c.width=c.height=12;const x=c.getContext("2d");x.drawImage(srcCanvas,r.x,r.y,r.w,r.h,0,0,12,12);const d=x.getImageData(0,0,12,12).data;const g=[];for(let i=0;i<d.length;i+=4)g.push(d[i]*.3+d[i+1]*.59+d[i+2]*.11);const m=g.reduce((a,b)=>a+b)/g.length;return g.map(v=>v>m?1:0)}
+function markDupes(){const {c}=getData();imp.tiles.forEach(t=>{t.hash=aHash(c,t);if(hashes.some(h=>h.reduce((a,v,i)=>a+(v!==t.hash[i]),0)<10))t.on=false})}
+function drawImp(){
+  const cv=$("#impCv"),im=imp.img;cv.width=im.naturalWidth;cv.height=im.naturalHeight;const x=cv.getContext("2d");x.drawImage(im,0,0);
+  const lw=Math.max(4,cv.width/180);
+  if(imp.mode==="head"){const t=+$("#slTop").value/1000*cv.height,b=+$("#slBot").value/1000*cv.height;x.fillStyle="rgba(29,25,22,.6)";x.fillRect(0,0,cv.width,t);x.fillRect(0,b,cv.width,cv.height-b);x.strokeStyle="#c4683f";x.lineWidth=lw;x.strokeRect(lw/2,t,cv.width-lw,b-t);return}
+  imp.tiles.forEach(t=>{if(t.on){x.strokeStyle="#c4683f";x.lineWidth=lw;x.strokeRect(t.x+lw/2,t.y+lw/2,t.w-lw,t.h-lw);x.fillStyle="#c4683f";x.beginPath();x.arc(t.x+t.w-lw*5,t.y+lw*5,lw*3,0,7);x.fill();x.strokeStyle="#fff";x.lineWidth=lw*.7;x.beginPath();x.moveTo(t.x+t.w-lw*6.4,t.y+lw*5);x.lineTo(t.x+t.w-lw*5.2,t.y+lw*6.2);x.lineTo(t.x+t.w-lw*3.6,t.y+lw*3.8);x.stroke()}else{x.fillStyle="rgba(29,25,22,.65)";x.fillRect(t.x,t.y,t.w,t.h)}});
+}
+$("#impCv").addEventListener("click",e=>{
+  if(imp.mode!=="posts")return;const cv=$("#impCv");const r=cv.getBoundingClientRect();const x=(e.clientX-r.left)*cv.width/r.width,y=(e.clientY-r.top)*cv.height/r.height;
+  const t=imp.tiles.find(t=>x>=t.x&&x<=t.x+t.w&&y>=t.y&&y<=t.y+t.h);if(t){t.on=!t.on;impUI()}
+});
+function cropBlob(r){return new Promise(res=>{const c=document.createElement("canvas");c.width=r.w;c.height=r.h;c.getContext("2d").drawImage(imp.img,r.x,r.y,r.w,r.h,0,0,r.w,r.h);c.toBlob(b=>res(b),"image/jpeg",.9)})}
+async function storeBlob(b){
+  if(mode==="cloud"&&assets){const r=await assets.upload(b,{type:"image/jpeg"});return r.id}
+  const k="local:"+uid();await idbPut(k,b);urlCache[k]=URL.createObjectURL(b);return k;
+}
+$("#impOk").onclick=async()=>{
+  if(!imp.img)return;
+  busy(true,"Вырезаю…");
+  try{
+    if(imp.mode==="head"){
+      const H=imp.img.naturalHeight,t=Math.round(+$("#slTop").value/1000*H),b=Math.round(+$("#slBot").value/1000*H);
+      const ref=await storeBlob(await cropBlob({x:0,y:t,w:imp.img.naturalWidth,h:b-t}));const old=S.headShot;S.headShot=ref;forgetLater([old]);flushForget();save();render();
+      busy(false);$("#imp").hidden=true;toast("Шапка поставлена");return;
+    }
+    const sel=imp.tiles.filter(t=>t.on);let n=0;
+    for(const t of sel){const ref=await storeBlob(await cropBlob(t));S.old.push({id:uid(),img:ref});hashes.push(t.hash);n++;$("#busyTxt").textContent=`Вырезаю ${n} из ${sel.length}…`}
+    save();render();toast(`Добавлено в «Уже в Instagram»: ${n}`);
+  }catch(e){toast(errText(e))}
+  busy(false);
+  if(imp.queue.length)nextShot();else{$("#imp").hidden=true}
+};
+
+/* ---------- запуск ---------- */
+async function start(){
+  await idbOpen();
+  render();
+  if(window.claude&&window.claude.use){
+    /* личная версия: данные только в браузере зрителя */
+  }
+  if(db){
+    mode=assets?"cloud":"view";readOnly=!assets;
+    docRef=db.doc("planner/feed");
+    let first=true;
+    docRef.onSnapshot(snap=>{
+      const d=snap.exists?snap.data():null;
+      if(!first&&(dirty||(d&&canon(normalize(d))===lastSaved)))return;
+      first=false;
+      if(d){S=normalize(d);lastSaved=canon(S)}
+      if(sel&&!live().find(p=>p.id===sel))sel=null;
+      const a=document.activeElement;if(a&&(a.id==="cap"||a.id==="ttl"||(a.closest&&a.closest(".prof-edit"))))return;
+      render();
+    },e=>{$("#status").textContent="Нет связи с хранилищем: "+(e.message||e.code)});
+  }else{
+    mode="local";
+    try{const j=localStorage.getItem("pb-feed");if(j)S=normalize(JSON.parse(j))}catch(e){}
+    await warmLocal();render();
+  }
+}
+start();
+})();
+</script>
+</body></html>
